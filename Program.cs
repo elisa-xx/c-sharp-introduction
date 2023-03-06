@@ -10,25 +10,72 @@ Console.WriteLine("Question 1\n");
 
 
 
-Console.WriteLine("Please enter your test score: ");
-var score1aStr = Console.ReadLine();// why var and not string?
-int score1a;
-while (!int.TryParse(score1aStr, out score1a))
+
+bool IsValid (int score1a)
 {
-    Console.WriteLine($"Please enter a number");
-    score1aStr= Console.ReadLine();// why do I not have to write the data type of score1aStr before the name?
-} 
-    Console.WriteLine($"Thanks for entering a score");
-if (score1a >= 0 && score1a <= 49)
-{
-    Console.WriteLine("FAIL");
+    if (score1a<=100 && score1a >= 0)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
 }
-else if (score1a >= 50 && score1a <= 100)
+
+bool IsPass(int score1a)
+{
+    if (score1a >= 50)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+Console.WriteLine("Please enter your test score:");
+//string scoreString = Console.ReadLine();
+//int score1a = int.TryParse(scoreString, out int score1a);
+
+int score1a = int.Parse(Console.ReadLine());
+
+if (!IsValid(score1a))
+{
+    Console.WriteLine("Please enter valid score");
+}
+else if (IsPass(score1a))
 {
     Console.WriteLine("PASS");
 }
-else
-    Console.WriteLine("You have entered an invalid score");
+else if (!IsPass(score1a))
+{
+    Console.WriteLine("FAIL");
+}
+
+
+//Console.WriteLine("Please enter your test score: ");
+//string score1aStr = Console.ReadLine();
+//int score1a;
+//while (!int.TryParse(score1aStr, out score1a))
+//{
+//    Console.WriteLine($"Please enter a number");
+//    score1aStr= Console.ReadLine();// why do I not have to write the data type of score1aStr before the name?
+//} 
+//    Console.WriteLine($"Thanks for entering a score");
+//if (score1a >= 0 && score1a <= 49)
+//{
+//    Console.WriteLine("FAIL");
+//}
+//else if (score1a >= 50 && score1a <= 100)
+//{
+//    Console.WriteLine("PASS");
+//}
+
+
+//else
+//    Console.WriteLine("You have entered an invalid score");
 
 
 /* The code below works well
