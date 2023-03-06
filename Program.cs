@@ -10,7 +10,7 @@ Console.WriteLine("Question 1\n");
 
 
 
-Console.WriteLine("Please enter your test score");
+Console.WriteLine("Please enter your test score: ");
 var score1aStr = Console.ReadLine();// why var and not string?
 int score1a;
 while (!int.TryParse(score1aStr, out score1a))
